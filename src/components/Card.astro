@@ -3,11 +3,17 @@ interface Props {
     user?: string
     titulo?: string
     contenido?: string
+    url?: string
+    textoAlt?: string
 }
-const{user, titulo, contenido} = Astro.props
+const{user, titulo, contenido, url, textoAlt} = Astro.props
+import { Image } from 'astro:assets'
 ---
 <div class="card">
-    <h2>{user}</h2>
+    <div>
+        <h2>{user}</h2>
+        <image src={url} alt={textoAlt} width="99%" height="99%" />
+    </div>
     <h2>{titulo}</h2>
     <p>{contenido}</p>
 </div>
@@ -22,8 +28,5 @@ const{user, titulo, contenido} = Astro.props
         margin-bottom: 150px;
         margin-left: 2%;
         margin-right: 2%;
-       
-       
-       
-    }
+        }
 </style>
